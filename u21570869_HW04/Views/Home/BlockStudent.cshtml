@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "BlockStudent";
+}
+<h2>BlockStudent</h2>
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h3 class="panel-title"> Block this user? </h3>
+    </div>
+    <div class="panel-body">
+        <form method="post">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"> Student </label>
+                <div class="col-sm-6">
+                    <input type="text" name="name" value="@Model.Name" disabled>
+                </div>
+            </div>
+            <p> &nbsp; </p>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="btn-group">
+                        <input type="button" class="btn btn-default" onclick="location.href='@Url.Action("Block", "Home")'" value="Back" style="margin-left:5px; margin-right: 5px">
+                        <input class="btn btn-danger" type="submit" value="Block" style="margin-left:5px; margin-right: 5px">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Block";
+}
+
+<h2>Block</h2>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Name </th>
+            <th scope="col"> IsBlocked </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td> @student.Name </td>
+                <td> @student.IsBlocked </td>
+                <td>
+                    @*@{
+                            string st = Convert.ToString(@student.IsBlocked);
+                        }*@
+                    @{
+                        if (student.IsBlocked == true)
+                        {
+                            <input id="unblock" class="btn btn-danger" type="submit" value="Unblock" onclick="location.href='@Url.Action("UnblockStudent", "Home", new { name = student.Name })'">
+                        }
+                        else
+                        {
+                            <input id="block" class="btn btn-danger" type="submit" value="BlockStudent" onclick="location.href='@Url.Action("BlockStudent", "Home", new { name = student.Name })'">
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
